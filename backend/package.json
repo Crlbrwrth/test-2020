@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"No test specified\" && exit 0",
-    "start": "nodemon -L ."
+    "start": "nodemon -L . --ignore *.json"
   },
   "author": "Peter Schramm",
   "license": "ISC",

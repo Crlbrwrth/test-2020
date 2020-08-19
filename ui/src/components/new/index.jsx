@@ -1,14 +1,30 @@
-import React, { useCallback } from 'react';
+import React, { useState } from 'react';
 
 import { Formik, Form, Field } from 'formik';
 
 import './styles.css';
 
 const PanelNew = () => {
-  const handler = useCallback(async (values) => {
-    // TODO: Send the data to the backend
-    console.log(values);
-  });
+  const [info, setInfo] = useState(false);
+
+  const showInfo = (data) => {
+    setInfo(data);
+    setTimeout(() => {
+      setInfo(false);
+    }, 2000);
+  };
+
+  const handler = (values) => {
+    fetch('http://localhost:4000/estate', {
+      method: 'post',
+      body: JSON.stringify(values),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        showInfo(data);
+      })
+      .catch((err) => err.message);
+  };
 
   return (
     <div className="panel-new-wrapper">
@@ -31,6 +47,13 @@ const PanelNew = () => {
           <button type="submit">Submit</button>
         </Form>
       </Formik>
+      {
+        info && (
+          <div className="info-box">
+            Erfolgreich gespeichert
+          </div>
+        )
+      }
     </div>
   );
 };

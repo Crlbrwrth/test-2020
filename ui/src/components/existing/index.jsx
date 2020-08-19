@@ -1,29 +1,35 @@
-import React from 'react';
-
+import React, { useState, useEffect } from 'react';
 import './styles.css';
 
 const PanelExisting = () => {
-  // const [data, setData] = useState([{
-  //   address: 'Street Name 1',
-  //   size: 110,
-  // },
-  // {
-  //   address: 'Street Name 2',
-  //   size: 70,
-  // }]);
+  const [data, setData] = useState([]);
 
-  // const fetchHandler = useCallback(async () => {
-  //   // todo
-  //   console.log('Fetch data');
-  // });
+  const fetchData = async () => {
+    fetch('http://localhost:4000/estate')
+      .then((res) => res.json())
+      .then((res) => setData(res))
+      .catch((err) => err.message);
+  };
 
-  console.log('TODO: Fetch the real estate data from the backend and show it here. Some code has been commented out to give a tiny hint how to do that.');
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <div className="panel-existing-wrapper">
-      <h1>All existing real estates are shown here</h1>
+      <h1>So interesting, real estates</h1>
       <div className="existing-real-estates">
-        Here the data should be shown
+        {
+          data.map((item) => {
+            const { address, size, timeStamp } = item;
+            return (
+              <div key={timeStamp}>
+                <h3>{`${size} square meters`}</h3>
+                <p>{address}</p>
+              </div>
+            );
+          })
+        }
       </div>
     </div>
   );

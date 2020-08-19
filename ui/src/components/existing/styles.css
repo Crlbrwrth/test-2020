@@ -1,8 +1,14 @@
 .panel-existing-wrapper {
     padding: 2rem;
-    background: #404040;
+    background: #e6821e;
 }
 
 .panel-existing-wrapper h1 {
     color: white;
+}
+
+.existing-real-estates {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }

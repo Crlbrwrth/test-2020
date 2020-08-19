@@ -1,6 +1,6 @@
 .panel-new-wrapper {
     padding: 2rem;
-    background: #404040;
+    background: #4577d3;
 }
 
 .panel-new-wrapper h1 {
@@ -21,4 +21,11 @@
 .panel-new-wrapper button {
     flex-grow: 1;
     margin: 1rem 0;
+}
+
+.info-box {
+    background-color: rgb(14, 184, 14);
+    font-weight: bold;
+    border: 2px solid black;
+    padding: 10px;
 }

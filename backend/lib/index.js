@@ -6,9 +6,7 @@ const init = async () => {
     port: 4000,
     host: '0.0.0.0',
   });
-
   server.route(routes);
-
   await server.start();
   console.log('Server running on %s', server.info.uri);
 };
