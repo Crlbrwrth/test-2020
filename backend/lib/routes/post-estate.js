@@ -9,7 +9,7 @@ const writeEstateToJSON = async (rawEntry) => {
     return new Promise((resolve, reject) => {
         fs.writeFile('lib/routes/estate-data.json', saveData, (err) => {
             if (err) reject(err)
-            resolve('super, alle')
+            resolve('[POST] /estate was successful')
         })
     })
 }

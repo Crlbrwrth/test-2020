@@ -17,7 +17,7 @@ const PanelExisting = () => {
 
   return (
     <div className="panel-existing-wrapper">
-      <h1>So interesting, real estates</h1>
+      <h1>Look at these nice real estates</h1>
       <div className="existing-real-estates">
         {
           data.map((item) => {
